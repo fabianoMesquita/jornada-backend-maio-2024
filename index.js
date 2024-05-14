@@ -48,4 +48,19 @@ app.post('/item', function (req, res){
 
 })
 
+  //Endpoint de Update [PUT] /item/:id
+  app.put('/item/:id', function (req, res){
+
+    const id = req.params.id
+
+    const body = req.body
+    const atualizarItem = body.nome
+
+    itens[id-1] = atualizarItem
+
+    res.send('Item Atualizado com sucesso: ' + id + ', ' + atualizarItem)
+  })
+
 app.listen(3000)
+
+
