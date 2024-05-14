@@ -61,6 +61,15 @@ app.post('/item', function (req, res){
     res.send('Item Atualizado com sucesso: ' + id + ', ' + atualizarItem)
   })
 
+
+//Endpoint de Delete
+app.delete('/item/:id', function(req,res){
+  const id = req.params.id
+
+  delete itens[id - 1]
+  res.send('Itens removidos com sucesso: '+id)
+})
+
 app.listen(3000)
 
 
