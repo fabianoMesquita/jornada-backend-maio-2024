@@ -29,4 +29,23 @@ app.get('/item/:id', function (req,res) {
   res.send(item)
 })
 
+
+app.use(express.json())
+
+//Endpoint de Create [POST]
+app.post('/item', function (req, res){
+  
+  //Acessamos o corpo da Requisição
+  const body = req.body
+
+  //Adicionar o novo item na Lista
+  const novoItem = body.nome
+
+  //Enviar uma mensagem confirmando
+  itens.push(novoItem)
+
+  res.send('Itens Adicionados: ' + novoItem)
+
+})
+
 app.listen(3000)
